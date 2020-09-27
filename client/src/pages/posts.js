@@ -7,28 +7,28 @@ import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 
-function Books() {
+function Posts() {
   // Setting our component's initial state
-  const [books, setBooks] = useState([])
+  const [posts, setPosts] = useState([])
   const [formObject, setFormObject] = useState({})
 
-  // Load all books and store them with setBooks
+  // Load all posts and store them with setPosts
   useEffect(() => {
     loadPosts()
   }, [])
 
-  // Loads all books and sets them to books
+  // Loads all [posts]
   function loadPosts() {
-    API.getBooks()
+    API.getPosts()
       .then(res => 
-        setBooks(res.data)
+        setPosts(res.data)
       )
       .catch(err => console.log(err));
   };
 
-  // Deletes a book from the database with a given id, then reloads books from the db
-  function deleteBook(id) {
-    API.deleteBook(id)
+  // Deletes a post from the database with a given id, then reloads posts from the db
+  function deletePost(id) {
+    API.deletePost(id)
       .then(res => loadPosts())
       .catch(err => console.log(err));
   }
@@ -39,15 +39,15 @@ function Books() {
     setFormObject({...formObject, [name]: value})
   };
 
-  // When the form is submitted, use the API.saveBook method to save the book data
-  // Then reload books from the database
+  // When the form is submitted, use the API.savePost method to save the post data
+  // Then reload posts from the database
   function handleFormSubmit(event) {
     event.preventDefault();
     if (formObject.title && formObject.username) {
-      API.saveBook({
+      API.savePost({
         title: formObject.title,
         username: formObject.username,
-        synopsis: formObject.synopsis
+        content: formObject.content
       })
         .then(res => loadPosts())
         .catch(err => console.log(err));
@@ -74,14 +74,14 @@ function Books() {
               />
               <TextArea
                 onChange={handleInputChange}
-                name="synopsis"
-                placeholder="Text Here"
+                name="content"
+                placeholder="Type Your Post Here"
               />
               <FormBtn
                 disabled={!(formObject.username && formObject.title)}
                 onClick={handleFormSubmit}
               >
-                Submit Book
+                Press Here To Post
               </FormBtn>
             </form>
           </Col>
@@ -89,16 +89,16 @@ function Books() {
             <Jumbotron>
               <h1>Current Posts</h1>
             </Jumbotron>
-            {books.length ? (
+            {posts.length ? (
               <List>
-                {books.map(book => (
-                  <ListItem key={book._id}>
-                    <Link to={"/posts/" + book._id}>
+                {posts.map(post => (
+                  <ListItem key={post._id}>
+                    <Link to={"/posts/" + post._id}>
                       <strong>
-                        {book.title} by {book.username}
+                        {post.title} by {post.username}
                       </strong>
                     </Link>
-                    <DeleteBtn onClick={() => deleteBook(book._id)} />
+                    <DeleteBtn onClick={() => deletePost(post._id)} />
                   </ListItem>
                 ))}
               </List>
@@ -112,4 +112,4 @@ function Books() {
   }
 
 
-export default Books;
+export default Posts;

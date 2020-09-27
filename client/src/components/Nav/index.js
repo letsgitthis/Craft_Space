@@ -2,7 +2,7 @@ import React from "react";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav className="bg-light justify-content-between">
       <a className="navbar-brand" href="/">
         Craftspace
       </a>
