@@ -14,11 +14,11 @@ function Books() {
 
   // Load all books and store them with setBooks
   useEffect(() => {
-    loadBooks()
+    loadPosts()
   }, [])
 
   // Loads all books and sets them to books
-  function loadBooks() {
+  function loadPosts() {
     API.getBooks()
       .then(res => 
         setBooks(res.data)
@@ -29,7 +29,7 @@ function Books() {
   // Deletes a book from the database with a given id, then reloads books from the db
   function deleteBook(id) {
     API.deleteBook(id)
-      .then(res => loadBooks())
+      .then(res => loadPosts())
       .catch(err => console.log(err));
   }
 
@@ -43,13 +43,13 @@ function Books() {
   // Then reload books from the database
   function handleFormSubmit(event) {
     event.preventDefault();
-    if (formObject.title && formObject.author) {
+    if (formObject.title && formObject.username) {
       API.saveBook({
         title: formObject.title,
-        author: formObject.author,
+        username: formObject.username,
         synopsis: formObject.synopsis
       })
-        .then(res => loadBooks())
+        .then(res => loadPosts())
         .catch(err => console.log(err));
     }
   };
@@ -59,26 +59,26 @@ function Books() {
         <Row>
           <Col size="md-6">
             <Jumbotron>
-              <h1>What Books Should I Read?</h1>
+              <h1>Make a Post Below!</h1>
             </Jumbotron>
             <form>
               <Input
                 onChange={handleInputChange}
                 name="title"
-                placeholder="Title (required)"
+                placeholder="Title"
               />
               <Input
                 onChange={handleInputChange}
-                name="author"
-                placeholder="Author (required)"
+                name="username"
+                placeholder="Username"
               />
               <TextArea
                 onChange={handleInputChange}
                 name="synopsis"
-                placeholder="Synopsis (Optional)"
+                placeholder="Text Here"
               />
               <FormBtn
-                disabled={!(formObject.author && formObject.title)}
+                disabled={!(formObject.username && formObject.title)}
                 onClick={handleFormSubmit}
               >
                 Submit Book
@@ -87,15 +87,15 @@ function Books() {
           </Col>
           <Col size="md-6 sm-12">
             <Jumbotron>
-              <h1>Books On My List</h1>
+              <h1>Current Posts</h1>
             </Jumbotron>
             {books.length ? (
               <List>
                 {books.map(book => (
                   <ListItem key={book._id}>
-                    <Link to={"/books/" + book._id}>
+                    <Link to={"/posts/" + book._id}>
                       <strong>
-                        {book.title} by {book.author}
+                        {book.title} by {book.username}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deleteBook(book._id)} />
