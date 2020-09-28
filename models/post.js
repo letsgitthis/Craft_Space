@@ -1,3 +1,5 @@
+// This file contains the Schema for the actual information posted on mongodb
+// Exports to models\index.js
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 

@@ -1,6 +1,7 @@
 const db = require("../models");
 
 // Defining methods 
+// Exports to routes\api\posts.js
 module.exports = {
   findAll: function(req, res) {
     db.Post
