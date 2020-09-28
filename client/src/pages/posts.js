@@ -47,7 +47,8 @@ function Posts() {
       API.savePost({
         title: formObject.title,
         username: formObject.username,
-        content: formObject.content
+        content: formObject.content,
+        photo: formObject.photo
       })
         .then(res => loadPosts())
         .catch(err => console.log(err));
@@ -71,6 +72,11 @@ function Posts() {
                 onChange={handleInputChange}
                 name="username"
                 placeholder="Username"
+              />
+              <Input
+                onChange={handleInputChange}
+                name="photo"
+                placeholder="Upload your image on PostImages and paste link here with http:// or https://"
               />
               <TextArea
                 onChange={handleInputChange}
@@ -96,6 +102,8 @@ function Posts() {
                     <Link to={"/posts/" + post._id}>
                       <strong>
                         {post.title} by {post.username}
+                        {/* <br></br>
+                        {post.content} */}
                       </strong>
                     </Link>
                     <DeleteBtn onClick={() => deletePost(post._id)} />

@@ -5,7 +5,7 @@ import { Col, Row, Container } from "../components/Grid";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 
-function Detail(props) {
+function PostData(props) {
   const [post, setPost] = useState({})
 
   // When this component mounts, grab the post with the _id of props.match.params.id
@@ -23,7 +23,9 @@ function Detail(props) {
           <Col size="md-12">
             <Jumbotron>
               <h1>
-                {post.title} by {post.username}
+                {post.title} 
+                <br></br>
+                posted by {post.username}
                 <br></br>
                 {post.date}
               </h1>
@@ -31,12 +33,13 @@ function Detail(props) {
           </Col>
         </Row>
         <Row>
-          <Col size="md-10 md-offset-1">
+          <Col size="md-12 md-offset-1">
             <article>
               <h1>content</h1>
               <p>
                 {post.content}
               </p>
+              <img className="avatar" src={post.photo} alt="post photo" />            
             </article>
           </Col>
         </Row>
@@ -50,4 +53,4 @@ function Detail(props) {
   }
 
 
-export default Detail;
+export default PostData;

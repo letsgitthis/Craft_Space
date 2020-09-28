@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row, Container } from "../components/Grid";
+import { Link } from "react-router-dom";
 import Jumbotron from "../components/Jumbotron";
 
 function NoMatch() {
@@ -14,9 +15,16 @@ function NoMatch() {
                 😢
               </span>
             </h1>
+            <Row>
+          <Col size="md-12">
+            <Link to="/">Go to Main Page</Link>
+          </Col>
+        </Row>
           </Jumbotron>
         </Col>
+        
       </Row>
+      
     </Container>
   );
 }

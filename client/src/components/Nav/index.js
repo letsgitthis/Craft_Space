@@ -6,8 +6,8 @@ function Nav() {
       <a className="navbar-brand" href="/">
         Craftspace
       </a>
-      <a className="navbar-brand" href="/detail">
-        Posts
+      <a className="navbar-brand" href="/Allposts">
+        See All Posts
       </a>
       <a className="navbar-brand" href="/">
         Leave A Post!
