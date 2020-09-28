@@ -4,7 +4,7 @@ import Posts from "./pages/Posts";
 import AllPosts from "./pages/AllPosts";
 import PostData from "./pages/PostData";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Nav/Navbar";
+import Nav from "./components/Navbar";
 
 function App() {
   return (
