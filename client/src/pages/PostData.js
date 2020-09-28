@@ -35,11 +35,11 @@ function PostData(props) {
         <Row>
           <Col size="md-12 md-offset-1">
             <article>
-              <h1>content</h1>
+              {/* <h1>content</h1> */}
               <p>
                 {post.content}
               </p>
-              <img className="avatar" src={post.photo} alt="post photo" />            
+              <img className="avatar" src={post.photo} alt="post" />            
             </article>
           </Col>
         </Row>

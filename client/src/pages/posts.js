@@ -61,6 +61,7 @@ function Posts() {
           <Col size="md-6">
             <Jumbotron>
               <h1>Make a Post Below!</h1>
+              <p>To post an image, upload it to PostImages, and paste the link below.</p>
             </Jumbotron>
             <form>
               <Input
@@ -76,7 +77,7 @@ function Posts() {
               <Input
                 onChange={handleInputChange}
                 name="photo"
-                placeholder="Upload your image on PostImages and paste link here with http:// or https://"
+                placeholder="Paste an image link here with https://"
               />
               <TextArea
                 onChange={handleInputChange}
