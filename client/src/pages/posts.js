@@ -55,13 +55,15 @@ function Posts() {
     }
   };
 
+
     return (
       <Container fluid>
         <Row>
           <Col size="md-6">
             <Jumbotron>
               <h1>Make a Post Below!</h1>
-              <p>To post an image, upload it to PostImages, and paste the link below.</p>
+              <p>To post an image, upload it to <a href="https://postimages.org/">PostImages</a>, 
+              and paste the Direct link below.</p>
             </Jumbotron>
             <form>
               <Input
@@ -86,12 +88,12 @@ function Posts() {
               />
               <FormBtn
                 disabled={!(formObject.username && formObject.title)}
-                onClick={handleFormSubmit}
-              >
+                onClick={handleFormSubmit} >
                 Press Here To Post
               </FormBtn>
             </form>
           </Col>
+
           <Col size="md-6 sm-12">
             <Jumbotron>
               <h1>Current Posts</h1>
@@ -102,7 +104,8 @@ function Posts() {
                   <ListItem key={post._id}>
                     <Link to={"/posts/" + post._id}>
                       <strong>
-                        {post.title} by {post.username}
+                        {post.title} 
+                        {/* by {post.username} */}
                         {/* <br></br>
                         {post.content} */}
                       </strong>
