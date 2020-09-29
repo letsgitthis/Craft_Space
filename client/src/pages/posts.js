@@ -62,8 +62,8 @@ function Posts() {
           <Col size="md-6">
             <Jumbotron>
               <h1>Make a Post Below!</h1>
-              <p>To post an image, upload it to <a href="https://postimages.org/">PostImages</a>, 
-              and paste the Direct link below.</p>
+              <p>To post an image, upload it to <a href="https://postimages.org/" target="_blank" rel="noopener noreferrer">
+                PostImages</a>, and paste the Direct link below.</p>
             </Jumbotron>
             <form>
               <Input
