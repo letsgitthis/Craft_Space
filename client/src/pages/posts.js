@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
+//import image1 from './client/public/carpenter-working.jpg';
+
 
 function Posts() {
   // Setting our component's initial state
