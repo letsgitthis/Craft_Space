@@ -1,13 +1,17 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
+import { MenuList } from "@material-ui/core";
+import Typography from '@material-ui/core/Typography';
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,8 +45,6 @@ const useStyles = makeStyles((theme) => ({
        
           <div className={classes.root}>
 
-
-
             <AppBar position="static">
               <Toolbar>
                 <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
@@ -56,11 +58,16 @@ const useStyles = makeStyles((theme) => ({
                     open={Boolean(anchorEl)}
                     onClose={handleClose}
                   >
-                    <MenuItem onClick={handleClose} href="/">Profile</MenuItem>
-                    <MenuItem onClick={handleClose} href="/Allposts">All Posts</MenuItem>
-                    <MenuItem onClick={handleClose} href="/">Leave a Post!</MenuItem>
-                  </Menu>
-
+                  <MenuItem onClick={handleClose} component={Link} to="/">
+                    Home
+                  </MenuItem>
+                <MenuItem onClick={handleClose} component={Link} to="/AllPosts">
+                  All Posts
+                  </MenuItem>
+                 <MenuItem onClick={handleClose} component={Link} to="/">
+                   Leave A Post!
+                 </MenuItem>
+                </Menu>
                 </IconButton>
                 <Typography variant="h6" className={classes.title} href="/">
                   CrafterSpace
