@@ -1,16 +1,16 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Posts from "./pages/Posts";
+import Posts from "./pages/posts";
 import AllPosts from "./pages/AllPosts";
 import PostData from "./pages/PostData";
 import NoMatch from "./pages/NoMatch";
-import Nav from "./components/Navbar";
+import ButtonAppBar from "./components/Navbar";
 
 function App() {
   return (
     <Router>
       <div>
-        <Nav />
+        <ButtonAppBar/>
         <Switch>
           <Route exact path={["/"]}>
             <Posts />
